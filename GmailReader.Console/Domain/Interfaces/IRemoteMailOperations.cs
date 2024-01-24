@@ -9,6 +9,7 @@ namespace GmailReader.Console.Domain.Interfaces;
 public interface IRemoteMailOperations
 {
     public Task Authenticate();
-    public Task RetrieveDataByMailAddress(string emailAddress);
+    public Task RetrieveDataByMailAddress(string emailAddress, DateTime initDate, DateTime endDate);
+    public Task CleanMailbox(string emailAddress);
 }
 

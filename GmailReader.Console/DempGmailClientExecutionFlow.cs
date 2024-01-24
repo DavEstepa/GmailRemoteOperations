@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using Google.Apis.Auth.OAuth2;
 using Google.Apis.Gmail.v1;
@@ -15,7 +16,7 @@ public static class OAuthExecution
     {
         string[] scopes = { GmailService.Scope.GmailModify };
 
-        string serviceAccountKeyPath = "Assets/credentials_client.json";
+        string serviceAccountKeyPath = "Assets/credentialsOAuth.json";
         string credPath = "token.json";
 
         UserCredential credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
@@ -35,20 +36,30 @@ public static class OAuthExecution
         //await RetrieveInfo(client);
 
         var users = client.Users;
-        var tempMessages = await users.Messages.List(userId: "me").ExecuteAsync();
-        if (tempMessages == null) throw new Exception("No Messages retrieved");
-        for (int i = 0; i < tempMessages.Messages.Count; i++)
+        var instruction = users.Messages.List(userId: "me");
+        instruction.Q = "from:conversations@message.teamtailor.com";
+        var msgs = await instruction.ExecuteAsync();
+        foreach (var msg in msgs.Messages)
         {
-            var tempMessage = await users.Messages.Get("me", tempMessages.Messages[i].Id).ExecuteAsync();
-            var header = tempMessage.Payload.Headers.Where(hd => hd.Name.Equals("From")).First();
-            var date = DateTimeOffset.FromUnixTimeMilliseconds(tempMessage.InternalDate??0).DateTime;
-            var emails = ExtractEmails(header.Value);
-            if (emails.Contains(EmailToTrash))
-            {
-                await users.Messages.Trash("me", tempMessages.Messages[i].Id).ExecuteAsync();
-
-            }
+            var fullMsg = await users.Messages.Get("me", msg.Id).ExecuteAsync();
+            var payload = fullMsg.Payload;
+            
         }
+        //var tempMessages = users.Messages.List(userId: "me").ExecuteAsync();
+
+        //if (tempMessages == null) throw new Exception("No Messages retrieved");
+        //for (int i = 0; i < tempMessages.Messages.Count; i++)
+        //{
+        //    var tempMessage = await users.Messages.Get("me", tempMessages.Messages[i].Id).ExecuteAsync();
+        //    var header = tempMessage.Payload.Headers.Where(hd => hd.Name.Equals("From")).First();
+        //    var date = DateTimeOffset.FromUnixTimeMilliseconds(tempMessage.InternalDate??0).DateTime;
+        //    var emails = ExtractEmails(header.Value);
+        //    if (emails.Contains(EmailToTrash))
+        //    {
+        //        await users.Messages.Trash("me", tempMessages.Messages[i].Id).ExecuteAsync();
+
+        //    }
+        //}
     }
 
     private static List<string> ExtractEmails(string completeValue)
