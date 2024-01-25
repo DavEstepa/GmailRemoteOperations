@@ -3,5 +3,3 @@ using GmailReader.Console;
 
 
 Console.WriteLine("App Running!");
-
-await OAuthExecution.Execute();

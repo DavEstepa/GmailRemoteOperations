@@ -16,6 +16,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Domain\Resources\AppSettings.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AppSettings.resx</DependentUpon>
+    </Compile>
     <Compile Update="Domain\Resources\GmailValues.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -29,6 +34,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Domain\Resources\AppSettings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppSettings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Update="Domain\Resources\GmailValues.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>GmailValues.Designer.cs</LastGenOutput>
