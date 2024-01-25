@@ -34,5 +34,18 @@ namespace GmailReader.Domain.Utilities
                 return false;
             }
         }
+
+        public static bool Execute(Action methodReference)
+        {
+            try
+            {
+                methodReference();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
     }
 }

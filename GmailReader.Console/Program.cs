@@ -3,7 +3,7 @@ using GmailReader.Services;
 using GmailReader.Domain.Utilities;
 
 var app = new FlowExecution();
-await ProtectedExecutionMethod.ExecuteAsync(app.Run);
+ProtectedExecutionMethod.Execute(app.RunMMFInstructions);
 
 public class FlowExecution
 {
@@ -13,5 +13,17 @@ public class FlowExecution
         var client = new GmailClient();
         await client.Authenticate();
         await client.CleanMailbox("empleos_co@computrabajo.com");
+    }
+
+    public void RunMMFInstructions()
+    {
+        while (true)
+        {
+            Console.WriteLine("Desea Salir?");
+            string option = Console.ReadLine()??"";
+            if (option.ToLower() == "si") break;
+
+
+        }
     }
 }
