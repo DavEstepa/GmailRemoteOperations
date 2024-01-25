@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace GmailReader.Console.Domain.Extensions
+namespace GmailReader.Domain.Extensions
 {
     public static class EmailExtractor
     {
@@ -20,6 +20,7 @@ namespace GmailReader.Console.Domain.Extensions
                 string extractedString = match.Groups[1].Value;
                 returnedValue.Add(extractedString);
             }
+            if (returnedValue.Count == 0) return "";
             return returnedValue.First();
         }
     }

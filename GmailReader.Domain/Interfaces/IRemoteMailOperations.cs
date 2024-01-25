@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GmailReader.Console.Domain.Interfaces;
+namespace GmailReader.Domain.Interfaces;
 
 public interface IRemoteMailOperations
 {

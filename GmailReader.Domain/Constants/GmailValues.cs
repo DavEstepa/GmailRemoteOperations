@@ -1,6 +1,6 @@
-﻿using static GmailReader.Console.Domain.Resources.GmailValues;
+﻿using static GmailReader.Domain.Resources.GmailValues;
 
-namespace GmailReader.Console.Domain.Constants
+namespace GmailReader.Domain.Constants
 {
     public static class GmailValues
     {

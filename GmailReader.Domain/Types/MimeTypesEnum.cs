@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GmailReader.Console.Domain.Types
+namespace GmailReader.Domain.Types
 {
     public enum MimeTypesEnum
     {

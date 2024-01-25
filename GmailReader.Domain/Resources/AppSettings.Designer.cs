@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GmailReader.Console.Domain.Resources {
+namespace GmailReader.Domain.Resources {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace GmailReader.Console.Domain.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class GmailValues {
+    internal class AppSettings {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal GmailValues() {
+        internal AppSettings() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace GmailReader.Console.Domain.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("GmailReader.Console.Domain.Resources.GmailValues", typeof(GmailValues).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("GmailReader.Domain.Resources.AppSettings", typeof(AppSettings).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -57,51 +57,6 @@ namespace GmailReader.Console.Domain.Resources {
             }
             set {
                 resourceCulture = value;
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a &lt;.
-        /// </summary>
-        internal static string EMAIL_INF_LIMIT_KEY {
-            get {
-                return ResourceManager.GetString("EMAIL_INF_LIMIT_KEY", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a &gt;.
-        /// </summary>
-        internal static string EMAIL_SUP_LIMIT_KEY {
-            get {
-                return ResourceManager.GetString("EMAIL_SUP_LIMIT_KEY", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a yyyy/MM/dd.
-        /// </summary>
-        internal static string FORMAT_DATE_KEY {
-            get {
-                return ResourceManager.GetString("FORMAT_DATE_KEY", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a From.
-        /// </summary>
-        internal static string FROM_KEY {
-            get {
-                return ResourceManager.GetString("FROM_KEY", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a me.
-        /// </summary>
-        internal static string ME_KEY {
-            get {
-                return ResourceManager.GetString("ME_KEY", resourceCulture);
             }
         }
     }

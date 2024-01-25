@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GmailReader.Console.Domain.Utilities
+namespace GmailReader.Domain.Utilities
 {
     public static class Base64URLHelpers
     {

@@ -1,15 +1,15 @@
-﻿using GmailReader.Console.Domain.Constants;
-using GmailReader.Console.Domain.Extensions;
-using GmailReader.Console.Domain.Interfaces;
-using GmailReader.Console.Domain.Types;
-using GmailReader.Console.Domain.Utilities;
+﻿using GmailReader.Domain.Constants;
+using GmailReader.Domain.Extensions;
+using GmailReader.Domain.Interfaces;
+using GmailReader.Domain.Types;
+using GmailReader.Domain.Utilities;
 using Google.Apis.Auth.OAuth2;
 using Google.Apis.Gmail.v1;
 using Google.Apis.Services;
 using Google.Apis.Util.Store;
 
 
-namespace GmailReader.Console.Services
+namespace GmailReader.Services
 {
     public class GmailClient : IRemoteMailOperations
     {
@@ -18,7 +18,7 @@ namespace GmailReader.Console.Services
         {
             string[] scopes = { GmailService.Scope.GmailModify };
 
-            string serviceAccountKeyPath = "Assets/credentials_client.json";
+            string serviceAccountKeyPath = "Assets/credentialsOAuth.json";
             string credPath = "token.json";
 
             UserCredential credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
